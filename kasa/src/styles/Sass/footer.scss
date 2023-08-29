@@ -1,0 +1,19 @@
+.footer {
+  display: flex;
+  width: 100%;
+  background-color: black;
+  justify-content: center;
+  height: 14rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .footer-img {
+    width: 10rem;
+    height: 6rem;
+  }
+  .footer-txt {
+    color: #ffffff;
+    font-size: 2rem;
+  }
+}

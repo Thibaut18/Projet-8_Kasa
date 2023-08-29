@@ -1,0 +1,39 @@
+.banner {
+  position: relative;
+  width: calc(100% - 18rem);
+  border-radius: 1.5rem;
+  height: 16rem;
+  box-sizing: border-box;
+  margin-right: 9rem;
+  margin-left: 9rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &::after {
+    background-color: #000;
+    bottom: 0;
+    content: "";
+    left: 0;
+    opacity: 0.3;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+  .banner-img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+  }
+  .banner-title {
+    position: absolute;
+    color: white;
+    font-size: 4rem;
+    font-weight: 500;
+    z-index: 2;
+    white-space: nowrap;
+    line-height: 4rem;
+  }
+}
