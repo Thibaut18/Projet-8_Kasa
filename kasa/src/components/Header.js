@@ -1,19 +1,37 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 import logo from "../assets/logo.svg"
 import "../styles/Sass/header.scss"
 
 function Header() {
+  const location = useLocation()
   return (
     <div className="header">
-      <img src={logo} alt="Logo Kasa" className="kasa-logo" />
+      <NavLink to="/homepage">
+        <img src={logo} alt="Logo Kasa" className="kasa-logo" />
+      </NavLink>
       <nav className="header-nav">
         <ul>
           <li>
-            <NavLink to="/" className="header-nav-active" exact>
+            <NavLink
+              to="/homepage"
+              className={
+                location.pathname === "/homepage" ? "header-nav-active" : ""
+              }
+              end
+            >
               Accueil
             </NavLink>
           </li>
-          <li>A Propos</li>
+          <li>
+            <NavLink
+              to="/about"
+              className={
+                location.pathname === "/about" ? "header-nav-active" : ""
+              }
+            >
+              A Propos
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </div>

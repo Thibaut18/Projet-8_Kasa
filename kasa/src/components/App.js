@@ -1,28 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Header from "./Header"
-import Banner from "./Banner"
-import Gallery from "./Gallery"
-import Footer from "./Footer"
+import { RouterProvider } from "react-router-dom"
+import router from "../routes/router"
 
 function App() {
-  return (
-    <Router>
-      <div>
-        <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Banner />
-                <Gallery />
-              </>
-            }
-          />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
-  )
+  return <RouterProvider router={router}></RouterProvider>
 }
+
 export default App

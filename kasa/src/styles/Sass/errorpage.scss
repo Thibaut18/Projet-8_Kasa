@@ -1,0 +1,34 @@
+#error-page {
+  .error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7rem;
+    margin-bottom: 9rem;
+    .error-code {
+      color: #ff6060;
+      font-family: Montserrat;
+      font-size: 288px;
+      font-style: normal;
+      font-weight: 700;
+      margin: 0;
+    }
+    .error-txt {
+      color: #ff6060;
+      font-family: Montserrat;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 142.6%;
+    }
+    .error-back-to-homepage-link {
+      color: #ff6060;
+      font-family: Montserrat;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 142.6%; /* 25.668px */
+      text-decoration-line: underline;
+    }
+  }
+}

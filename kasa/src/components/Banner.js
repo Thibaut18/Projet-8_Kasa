@@ -1,16 +1,10 @@
-import bannerpicture from "../assets/bannerpicture.svg"
 import "../styles/Sass/banner.scss"
 
-function Banner() {
-  const title = "Chez vous, partout et ailleurs"
+function Banner({ imageSrc, altText, title }) {
   return (
     <div className="banner">
-      <img
-        src={bannerpicture}
-        alt="Falaises en bord de mer"
-        className="banner-img"
-      />
-      <h1 className="banner-title">{title}</h1>
+      <img src={imageSrc} alt={altText} className="banner-img" />
+      {title && <h1 className="banner-title">{title}</h1>}
     </div>
   )
 }
