@@ -8,7 +8,7 @@ function Gallery() {
       {locations.map((location) => (
         <div className="gallery-title-and-img" key={location.id}>
           <h2 className="gallery-title">{location.title}</h2>
-          <Link to={`/logement/${location.id}`}>
+          <Link to={`/housing/${location.id}`}>
             <img
               className="gallery-img"
               src={location.cover}

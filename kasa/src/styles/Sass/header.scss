@@ -9,7 +9,6 @@
     padding-left: 5rem;
   }
   .header-nav {
-    color: #ff6060;
     display: flex;
     flex-direction: row;
     ul {
@@ -25,7 +24,7 @@
           color: inherit;
         }
         a.header-nav-active {
-          border-bottom: 3px solid #ff6060;
+          border-bottom: 3px solid;
         }
       }
     }

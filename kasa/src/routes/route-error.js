@@ -6,7 +6,9 @@ import "../styles/Sass/errorpage.scss"
 
 export default function ErrorPage() {
   const error = useRouteError()
-  console.error(error)
+  if (error) {
+    console.error(error)
+  }
 
   return (
     <div id="error-page">

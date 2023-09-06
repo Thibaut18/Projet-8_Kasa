@@ -1,58 +1,68 @@
+import React, { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import locations from "../datas/data.json"
-import { useState, useEffect } from "react"
+import "../styles/Sass/housingdetails.scss"
+import HousingDetailsCover from "./HousingDetailsCover"
+import HousingDetailsMainContent from "./HousingDetailsMainContent"
+import HousingDetailsDropdown from "./HousingDetailsDropdown"
 
 function HousingDetails() {
   const navigate = useNavigate()
   const { id } = useParams()
-  const logement = locations.find((location) => location.id === id)
-
-  const [showDescription, setShowDescription] = useState(false)
-  const [showEquipments, setShowEquipments] = useState(false)
+  const housing = locations.find((location) => location.id === id)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   useEffect(() => {
-    if (!logement) {
+    if (!housing) {
       navigate("/404")
     }
-  }, [logement, navigate])
+  }, [housing, navigate])
 
-  if (!logement) {
+  if (!housing) {
     return null
   }
 
-  return (
-    <div className="logement-details">
-      <h1>{logement.title}</h1>
-      <img src={logement.cover} alt={`Cover of ${logement.title}`} />
+  const nextImage = () => {
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex + 1) % housing.pictures.length,
+    )
+  }
 
-      <h2>Hôte : {logement.host.name}</h2>
-      <img
-        src={logement.host.picture}
-        alt={`Profile of ${logement.host.name}`}
-      />
+  const previousImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex - 1 < 0 ? housing.pictures.length - 1 : prevIndex - 1,
+    )
+  }
 
-      <p>Rating: {logement.rating}</p>
-      <p>Localisation : {logement.location}</p>
-
-      {logement.tags.map((tag, index) => (
-        <span key={index}>{tag}</span>
-      ))}
-
-      <button onClick={() => setShowDescription(!showDescription)}>
-        Description
-      </button>
-      {showDescription && <p>{logement.description}</p>}
-
-      <button onClick={() => setShowEquipments(!showEquipments)}>
-        Equipements
-      </button>
-      {showEquipments && (
-        <ul>
-          {logement.equipments.map((equipment, index) => (
-            <li key={index}>{equipment}</li>
+  const dropdownData = [
+    {
+      title: "Description",
+      content: housing.description,
+    },
+    {
+      title: "Equipements",
+      content: (
+        <ul className="housing-details-equipments-list">
+          {housing.equipments.map((equipment, index) => (
+            <li className="housing-details-equipment" key={index}>
+              {equipment}
+            </li>
           ))}
         </ul>
-      )}
+      ),
+    },
+  ]
+
+  return (
+    <div className="housing-details">
+      <HousingDetailsCover
+        housing={housing}
+        currentImageIndex={currentImageIndex}
+        nextImage={nextImage}
+        previousImage={previousImage}
+      />
+      <HousingDetailsMainContent housing={housing} />
+      <HousingDetailsDropdown dropdownData={dropdownData} />
     </div>
   )
 }
