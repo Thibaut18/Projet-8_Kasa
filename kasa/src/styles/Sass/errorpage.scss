@@ -1,3 +1,5 @@
+@import "./breakpoints.scss";
+
 #error-page {
   .error-content {
     display: flex;
@@ -10,12 +12,20 @@
       font-style: normal;
       font-weight: 700;
       margin: 0;
+      @include breakpoint(mobile) {
+        font-size: 120px;
+        padding-top: 6rem;
+      }
     }
     .error-txt {
       font-size: 36px;
       font-style: normal;
       font-weight: 500;
       line-height: 142.6%;
+      @include breakpoint(mobile) {
+        font-size: 24px;
+        text-align: center;
+      }
     }
     .error-back-to-homepage-link {
       color: #ff6060;

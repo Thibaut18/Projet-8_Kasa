@@ -1,39 +1,78 @@
-.banner {
-  position: relative;
-  width: calc(100% - 16rem);
-  border-radius: 1.5rem;
-  height: 16rem;
-  box-sizing: border-box;
-  margin-right: 8rem;
-  margin-left: 8rem;
-  overflow: hidden;
+@import "./breakpoints.scss";
+
+.banner-div {
   display: flex;
-  justify-content: center;
   align-items: center;
-  &::after {
-    background-color: #000;
-    bottom: 0;
-    content: "";
-    left: 0;
-    opacity: 0.3;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1;
-  }
-  .banner-img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    border-radius: 1rem;
-  }
-  .banner-title {
-    position: absolute;
-    color: white;
-    font-size: 4rem;
-    font-weight: 500;
-    z-index: 2;
-    white-space: nowrap;
-    line-height: 4rem;
+  justify-content: center;
+  .banner {
+    position: relative;
+    width: calc(100% - 16rem);
+    border-radius: 1.5rem;
+    height: 16rem;
+    box-sizing: border-box;
+    margin-right: 8rem;
+    margin-left: 8rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    @include breakpoint(mobile) {
+      padding: 0;
+      margin: 0;
+      margin-bottom: 2rem;
+      width: 100%;
+      height: 12rem;
+      border-radius: 1rem;
+      justify-content: center;
+    }
+    @include breakpoint(tablet) {
+      margin: 0;
+      width: 100%;
+      margin-bottom: 2rem;
+      height: 14rem;
+    }
+    &::after {
+      background-color: #000;
+      bottom: 0;
+      content: "";
+      left: 0;
+      opacity: 0.3;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+    .banner-img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      border-radius: 1rem;
+      @include breakpoint(mobile) {
+        justify-content: center;
+      }
+    }
+    .banner-title {
+      position: absolute;
+      color: white;
+      font-size: 4rem;
+      font-weight: 500;
+      z-index: 2;
+      white-space: nowrap;
+      line-height: 4rem;
+      @include breakpoint(mobile) {
+        font-size: 1.5rem;
+        justify-content: flex-start;
+        white-space: wrap;
+        line-height: 3rem;
+        font-weight: 500;
+        padding: 0 1rem;
+      }
+      @include breakpoint(tablet) {
+        font-size: 2.4rem;
+        white-space: wrap;
+        padding: 0 1rem;
+      }
+    }
   }
 }

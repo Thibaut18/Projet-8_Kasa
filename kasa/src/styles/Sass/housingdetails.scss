@@ -1,16 +1,27 @@
+@import "./breakpoints.scss";
+
 .housing-details {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  padding: 0 6rem;
+  @include breakpoint(mobile) {
+    padding: 0;
+  }
+  @include breakpoint(tablet) {
+    padding: 0;
+  }
   .housing-details-cover {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 600px;
-    width: 1600px;
+    height: 480px;
+    width: 100%;
+    margin-top: 30px;
+    @include breakpoint(mobile) {
+      height: 340px;
+    }
     .housing-details-cover-img {
       width: 100%;
       display: block;
@@ -19,6 +30,9 @@
       box-sizing: border-box;
       height: 100%;
       margin: 0 20px;
+      @include breakpoint(mobile) {
+        border-radius: 12px;
+      }
     }
     .image-counter {
       position: absolute;
@@ -30,6 +44,9 @@
       z-index: 11;
       font-size: 1.5rem;
       margin-bottom: 1rem;
+      @include breakpoint(mobile) {
+        display: none;
+      }
     }
     .housing-details-cover-arrow {
       position: absolute;
@@ -39,14 +56,28 @@
       width: 100px;
       height: 100px;
       cursor: pointer;
+      @include breakpoint(mobile) {
+        width: 30px;
+        height: 30px;
+      }
+      @include breakpoint(tablet) {
+        width: 80px;
+        height: 80px;
+      }
     }
 
     .left {
       left: 3rem;
+      @include breakpoint(mobile) {
+        left: 1rem;
+      }
     }
 
     .right {
       right: 3rem;
+      @include breakpoint(mobile) {
+        right: 1rem;
+      }
     }
   }
 
@@ -55,29 +86,142 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    max-width: 1600px;
     padding: 0 20px;
+    @include breakpoint(mobile) {
+      flex-direction: column;
+    }
+    @include breakpoint(tablet) {
+      padding: 0;
+    }
+    .housing-details-title {
+      font-weight: 500;
+      font-size: 3rem;
+      margin-top: 2rem;
+      margin-bottom: 0;
+      font-style: normal;
+      @include breakpoint(mobile) {
+        font-size: 1.7rem;
+      }
+      @include breakpoint(tablet) {
+        font-size: 2.3rem;
+        width: 80%;
+      }
+    }
+    .housing-details-location {
+      font-weight: 500;
+      font-size: 1.5rem;
+      font-style: normal;
+      @include breakpoint(mobile) {
+        font-size: 1.1rem;
+      }
+      @include breakpoint(tablet) {
+        font-size: 1.4rem;
+      }
+    }
     .housing-details-tags {
       color: white;
       display: flex;
       gap: 10px;
+      margin-bottom: 2rem;
+      width: 60%;
+      @include breakpoint(mobile) {
+        margin-bottom: 0.3rem;
+      }
       .housing-details-tag {
         background-color: #ff6060;
-        padding: 4px 20px;
+        padding: 6px 20px;
         flex: 1 1 0;
-        min-width: 60px;
+        width: 33.3%;
         text-align: center;
         border-radius: 0.5rem;
+        font-size: 0.8rem;
+        @include breakpoint(mobile) {
+          display: flex;
+          font-size: 0.7rem;
+          align-items: center;
+        }
+        @include breakpoint(tablet) {
+          display: flex;
+          font-size: 1rem;
+          align-items: center;
+          width: 50%;
+        }
       }
     }
     .housing-details-host {
-      .housing-details-host-picture {
-        border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      @include breakpoint(mobile) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem 1rem 1rem;
+      }
+      .housing-details-host-title-and-picture {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        padding-top: 2rem;
+        padding-left: 1rem;
+        justify-content: flex-end;
+        margin-right: 1rem;
+        @include breakpoint(mobile) {
+          align-items: center;
+          padding: 0;
+          margin: 0;
+        }
+        @include breakpoint(tablet) {
+          align-items: center;
+          padding: 0;
+          margin: 0;
+          margin-top: 1rem;
+        }
+        .housing-details-host-title {
+          font-weight: 500;
+          text-align: right;
+          @include breakpoint(mobile) {
+            font-size: 1.2rem;
+          }
+        }
+        .housing-details-host-picture {
+          border-radius: 50%;
+          height: 5.5rem;
+          width: 5.5rem;
+          @include breakpoint(mobile) {
+            width: 3.4rem;
+            height: 3.4rem;
+          }
+          @include breakpoint(tablet) {
+            justify-content: flex-end;
+          }
+        }
       }
     }
   }
 
   .dropdown-section {
+    display: flex;
+    align-items: flex-start;
     flex-direction: row;
+    justify-content: space-between;
+    gap: 5rem;
+    padding-bottom: 0;
+    @include breakpoint(mobile) {
+      flex-direction: column;
+      gap: 0;
+    }
+    @include breakpoint(tablet) {
+      padding: 0;
+      gap: 1rem;
+    }
+    .dropdown-container {
+      width: 100%;
+      .dropdown-button {
+        width: 100%;
+      }
+      .dropdown-content {
+        width: calc(100% - 2rem);
+      }
+    }
   }
 }

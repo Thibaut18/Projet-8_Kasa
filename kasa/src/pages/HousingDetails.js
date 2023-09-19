@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import locations from "../datas/data.json"
 import "../styles/Sass/housingdetails.scss"
-import HousingDetailsCover from "./HousingDetailsCover"
-import HousingDetailsMainContent from "./HousingDetailsMainContent"
-import HousingDetailsDropdown from "./HousingDetailsDropdown"
+import HousingDetailsCover from "../components/HousingDetailsCover"
+import HousingDetailsMainContent from "../components/HousingDetailsMainContent"
+import HousingDetailsDropdown from "../components/HousingDetailsDropdown"
 
 function HousingDetails() {
   const navigate = useNavigate()

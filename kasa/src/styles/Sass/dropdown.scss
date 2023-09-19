@@ -1,11 +1,19 @@
+@import "./breakpoints.scss";
+
 .dropdown-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
   width: 100%;
   padding-bottom: 4rem;
-  max-height: 43rem;
+  @include breakpoint(mobile) {
+    gap: 0;
+    padding-bottom: 1rem;
+  }
+  @include breakpoint(tablet) {
+    gap: 0;
+    padding-bottom: 1rem;
+  }
   .dropdown-container {
     position: relative;
     display: flex;
@@ -13,23 +21,34 @@
     justify-content: center;
     align-items: center;
     width: 80%;
-    height: 4rem;
+    height: auto;
     margin-bottom: 1rem;
+    @include breakpoint(mobile) {
+      width: 100%;
+      margin-bottom: 0;
+    }
     .dropdown-button {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: #ff6060;
-      width: 70%;
-      height: 100%;
+      width: 80%;
+      height: 4rem;
       border: none;
       border-radius: 0.5rem;
       padding-left: 1rem;
       padding-right: 1rem;
+      @include breakpoint(mobile) {
+        width: 100%;
+        height: 3rem;
+      }
       .dropdown-title {
         color: white;
         font-size: 1.5rem;
         font-family: "Montserrat", sans-serif;
+        @include breakpoint(mobile) {
+          font-size: 1.3rem;
+        }
       }
       .dropdown-arrow {
         transition: transform 0.3s ease-in-out;
@@ -40,24 +59,47 @@
     }
     .dropdown-content {
       opacity: 0;
+      max-height: 0;
       overflow: hidden;
-      height: 0;
+      transition:
+        opacity 0.5s,
+        max-height 0.5s,
+        visibility 0.5s;
       background-color: #f6f6f6;
-      transform: translateY(0);
+      width: calc(80% - 2rem);
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      padding: 1rem 1rem;
+      font-size: 1.2rem;
+      @include breakpoint(mobile) {
+        width: calc(100% - 2rem);
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
       &.open {
-        animation: move-down 0.3s forwards;
-        height: 300px;
+        visibility: visible;
         opacity: 1;
+        max-height: 500px;
       }
     }
   }
 }
 
-@keyframes move-down {
+@keyframes slideOpen {
   0% {
-    transform: translateY(0);
+    transform: translateY(-30px);
   }
   100% {
-    transform: translateY(45px);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

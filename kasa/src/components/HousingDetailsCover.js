@@ -14,21 +14,25 @@ function HousingDetailsCover({
         src={housing.pictures[currentImageIndex]}
         alt={`Photo ${currentImageIndex + 1} de ${housing.title}`}
       />
-      <div className="image-counter">
-        {currentImageIndex + 1}/{housing.pictures.length}
-      </div>
-      <img
-        className="housing-details-cover-arrow left"
-        src={leftArrow}
-        alt="Précédent"
-        onClick={previousImage}
-      />
-      <img
-        className="housing-details-cover-arrow right"
-        src={rightArrow}
-        alt="Suivant"
-        onClick={nextImage}
-      />
+      {housing.pictures.length > 1 && (
+        <>
+          <div className="image-counter">
+            {currentImageIndex + 1}/{housing.pictures.length}
+          </div>
+          <img
+            className="housing-details-cover-arrow left"
+            src={leftArrow}
+            alt="Précédent"
+            onClick={previousImage}
+          />
+          <img
+            className="housing-details-cover-arrow right"
+            src={rightArrow}
+            alt="Suivant"
+            onClick={nextImage}
+          />
+        </>
+      )}
     </div>
   )
 }

@@ -1,13 +1,23 @@
+@import "./breakpoints.scss";
+
 .footer {
   display: flex;
   width: 100%;
   background-color: black;
   justify-content: center;
   height: 14rem;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  @include breakpoint(mobile) {
+    width: calc(100% + 1.8rem);
+    position: relative;
+    left: -0.9rem;
+  }
+  @include breakpoint(tablet) {
+    width: calc(100% + 6rem);
+    position: relative;
+    left: -3rem;
+  }
   .footer-img {
     width: 10rem;
     height: 6rem;
@@ -15,5 +25,12 @@
   .footer-txt {
     color: #ffffff;
     font-size: 2rem;
+    @include breakpoint(mobile) {
+      font-size: 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      width: 60%;
+      text-align: center;
+    }
   }
 }

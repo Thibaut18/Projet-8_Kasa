@@ -1,3 +1,5 @@
+@import "./breakpoints.scss";
+
 .header {
   box-sizing: border-box;
   display: flex;
@@ -5,26 +7,57 @@
   width: 100%;
   justify-content: space-between;
   padding: 3rem 9rem 3rem 4rem;
+  @include breakpoint(mobile) {
+    padding: 0;
+  }
+  @include breakpoint(tablet) {
+    padding: 0;
+  }
   .kasa-logo {
     padding-left: 5rem;
+    @include breakpoint(mobile) {
+      padding: 0;
+      width: 8rem;
+      height: 8rem;
+      margin-left: 6px;
+    }
+    @include breakpoint(tablet) {
+      padding: 0;
+      width: 14rem;
+      height: 9rem;
+    }
   }
   .header-nav {
     display: flex;
     flex-direction: row;
+    align-items: center;
     ul {
       display: flex;
       flex-direction: row;
       gap: 3rem;
+      @include breakpoint(mobile) {
+        gap: 0.8rem;
+        margin: 0;
+        padding: 0;
+        margin-right: 6px;
+      }
       li {
         list-style-type: none;
         font-size: 2rem;
         font-weight: 500;
+        @include breakpoint(mobile) {
+          font-size: 13px;
+          text-transform: uppercase;
+        }
         a {
           text-decoration: none;
           color: inherit;
         }
         a.header-nav-active {
           border-bottom: 3px solid;
+          @include breakpoint(mobile) {
+            border-bottom: 2px solid;
+          }
         }
       }
     }

@@ -1,12 +1,9 @@
 import { createBrowserRouter, Navigate } from "react-router-dom"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
-import About from "../components/About"
-import Banner from "../components/Banner"
-import Gallery from "../components/Gallery"
-import bannerpicture from "../assets/bannerpicture.svg"
+import Layout from "../components/Layout"
+import About from "../pages/About"
+import Homepage from "../pages/Homepage"
 import ErrorPage from "./route-error"
-import HousingDetails from "../components/HousingDetails"
+import HousingDetails from "../pages/HousingDetails"
 
 const router = createBrowserRouter([
   {
@@ -14,45 +11,30 @@ const router = createBrowserRouter([
     element: <Navigate to="/homepage" replace />,
   },
   {
-    path: "/homepage",
-    element: (
-      <div>
-        <Header />
-        <>
-          <Banner
-            imageSrc={bannerpicture}
-            altText="Falaises en bord de mer"
-            title="Chez vous, partout et ailleurs"
-          />
-          <Gallery />
-        </>
-        <Footer />
-      </div>
-    ),
-  },
-  {
-    path: "/about",
-    element: (
-      <div>
-        <Header />
-        <About />
-        <Footer />
-      </div>
-    ),
-  },
-  {
-    path: "/housing/:id",
-    element: (
-      <div>
-        <Header />
-        <HousingDetails />,
-        <Footer />
-      </div>
-    ),
-  },
-  {
-    path: "*",
-    element: <ErrorPage />,
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "homepage",
+        element: (
+          <>
+            <Homepage />
+          </>
+        ),
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "housing/:id",
+        element: <HousingDetails />,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
+      },
+    ],
   },
 ])
 

@@ -1,0 +1,54 @@
+@import "./breakpoints.scss";
+
+.stars {
+  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  gap: 0.5rem;
+  margin-right: 1rem;
+  @include breakpoint(mobile) {
+    gap: 0rem;
+    width: 30%;
+    margin: 0;
+    padding: 0;
+  }
+  @include breakpoint(tablet) {
+    gap: 0rem;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+    margin-top: 0.4rem;
+  }
+  .star-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    @include breakpoint(mobile) {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    @include breakpoint(tablet) {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+  .empty {
+    width: 2rem;
+    height: 2rem;
+    padding-top: 4px;
+    padding-left: 5px;
+    @include breakpoint(mobile) {
+      width: 1.2rem;
+      height: 1.2rem;
+      padding-top: 0;
+      padding-left: 2px;
+    }
+    @include breakpoint(tablet) {
+      width: 1.9rem;
+      height: 1.9rem;
+      padding-top: 0;
+      padding-left: 5px;
+    }
+  }
+}

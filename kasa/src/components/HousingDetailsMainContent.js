@@ -1,6 +1,9 @@
 import RatingStars from "./RatingStars"
 
 function HousingDetailsMainContent({ housing }) {
+  const nameParts = housing.host.name.split(" ")
+  const namePart1 = nameParts[0]
+  const namePart2 = nameParts.slice(1).join(" ")
   return (
     <div className="housing-details-main-content">
       <div className="housing-details-info">
@@ -18,15 +21,23 @@ function HousingDetailsMainContent({ housing }) {
       </div>
 
       <div className="housing-details-host">
-        <h2 className="housing-details-host-title">{housing.host.name}</h2>
-        <img
-          className="housing-details-host-picture"
-          src={housing.host.picture}
-          alt={`Profile of ${housing.host.name}`}
-        />
-        <div className="housing-details-rating">
-          <RatingStars rating={housing.rating} />
-        </div>
+        <span className="housing-details-host-title-and-picture">
+          <h2 className="housing-details-host-title">
+            {namePart1}
+            {namePart2 && (
+              <>
+                <br />
+                {namePart2}
+              </>
+            )}
+          </h2>
+          <img
+            className="housing-details-host-picture"
+            src={housing.host.picture}
+            alt={`Profile of ${housing.host.name}`}
+          />
+        </span>
+        <RatingStars rating={housing.rating} />
       </div>
     </div>
   )

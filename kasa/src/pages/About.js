@@ -1,6 +1,6 @@
 import React from "react"
-import Dropdown from "./Dropdown"
-import Banner from "./Banner"
+import Dropdown from "../components/Dropdown"
+import Banner from "../components/Banner"
 import aboutbannerpicture from "../assets/aboutbannerpicture.svg"
 
 function About() {
