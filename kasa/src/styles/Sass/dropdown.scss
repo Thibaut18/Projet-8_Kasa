@@ -14,6 +14,30 @@
     gap: 0;
     padding-bottom: 1rem;
   }
+  .banner-div {
+    width: 80%;
+    height: 90%;
+    @include breakpoint(mobile) {
+      width: 100%;
+      height: 10rem;
+      margin-bottom: 2rem;
+    }
+    .banner {
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+      height: 100%;
+      @include breakpoint(mobile) {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
+        justify-content: center;
+      }
+    }
+  }
   .dropdown-container {
     position: relative;
     display: flex;
