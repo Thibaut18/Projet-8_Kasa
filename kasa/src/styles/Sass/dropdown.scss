@@ -22,6 +22,11 @@
       height: 10rem;
       margin-bottom: 2rem;
     }
+    @include breakpoint(tablet) {
+      width: 100%;
+      height: 16rem;
+      margin-bottom: 2rem;
+    }
     .banner {
       margin-left: 0;
       margin-right: 0;

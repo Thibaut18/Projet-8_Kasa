@@ -16,6 +16,10 @@
         font-size: 120px;
         padding-top: 6rem;
       }
+      @include breakpoint(tablet) {
+        font-size: 270px;
+        padding-top: 6rem;
+      }
     }
     .error-txt {
       font-size: 36px;
@@ -24,6 +28,9 @@
       line-height: 142.6%;
       @include breakpoint(mobile) {
         font-size: 24px;
+        text-align: center;
+      }
+      @include breakpoint(tablet) {
         text-align: center;
       }
     }
