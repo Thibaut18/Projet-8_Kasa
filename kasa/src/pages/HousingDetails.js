@@ -16,7 +16,7 @@ function HousingDetails() {
     if (!housing) {
       navigate("/404")
     }
-  }, [housing, navigate])
+  }, [housing])
 
   if (!housing) {
     return null
